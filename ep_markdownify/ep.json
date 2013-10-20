@@ -1,0 +1,12 @@
+{
+  "parts": [
+    {
+      "name": "main",
+      "client_hooks": {
+        "aceEditorCSS": "ep_markdownify/static/js/index",
+        "aceGetFilterStack": "ep_markdownify/static/js/index:aceGetFilterStack",
+        "aceCreateDomLine": "ep_markdownify/static/js/index:aceCreateDomLine"
+      }
+    }
+  ]
+}

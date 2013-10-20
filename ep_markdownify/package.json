@@ -1,0 +1,32 @@
+{
+  "name": "ep_markdownify",
+  "description": "Inline markdown formating.  Format headings, show images, highlight lists, tables and more.",
+  "version": "0.0.1",
+  "author": "f0i <f0i.etherpad@projects.f0i.de>",
+  "contributors": [
+  {
+    "name": "Martin Sigloch",
+    "email": "martin.etherpad@projects.f0i.de"
+  },
+  {
+    "name": "Matthias Bartelmeß",
+    "email": "mba@fourplusone.de",
+    "contribution": "reference plugin ep_linkify"
+  },
+  {
+    "name": "John McLear",
+    "email": "john@mclear.co.uk",
+    "contribution": "reference plugin ep_linkify"
+  }
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://projects.f0i.de/etherpad/markdownify.md",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/f0i/etherpad-plugins"
+  }
+}

@@ -1,0 +1,130 @@
+.mdHeading {
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.mdHeading.h1 {
+  font-size: 160%;
+}
+
+.mdHeading.h2 {
+  font-size: 150%;
+}
+
+.mdHeading.h3 {
+  font-size: 140%;
+}
+
+.mdHeading.h4 {
+  font-size: 130%;
+}
+
+.mdHeading.h5 {
+  font-size: 120%;
+}
+
+.mdImgLink > span {
+  position: absolute;
+  right: 0px;
+  margin-top: -300px;
+  z-index: -1;
+}
+
+.mdImgContainer {
+  height: 600px;
+  width: 300px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.mdImgContainer * {
+  vertical-align: center;
+}
+
+.mdImgContainer > img {
+  max-height: 150px;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0.5;
+}
+
+.mdImgLink:hover > span {
+  z-index: 2;
+}
+
+.mdImgLink:hover > span > .mdImgContainer > img {
+  background-color: white;
+  opacity: 1;
+  max-height: 600px;
+  max-width: 400px;
+}
+
+.mdImg {
+  color: blue;
+}
+
+.mdCode {
+  font-family: monospace;
+  color: #008000;
+}
+
+.mdItalic, .mdItalicAlt {
+  font-style: italic;
+}
+
+.mdBold, .mdBoldAlt {
+  font-weight: bold;
+}
+
+.mdUnderline {
+  text-decoration: underline;
+}
+
+.mdHl-line {
+  border-bottom: 1px solid gray;
+  width: 95%;
+  height: 8pt;
+  left: 0px;
+  position: absolute;
+}
+
+.mdUl, .mdOl {
+  color: brown;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.mdCodeBlock {
+  color: green;
+  font-family: monospace;
+}
+
+.mdTable {
+  font-family: monospace;
+}
+
+.mdLink, .mdReference {
+  color: blue;
+}
+
+.mdQuote {
+  font-style: italic;
+}
+
+.mdXml {
+  color: brown;
+  font-family: monospace;
+}
+
+.mdTodo {
+  color: red;
+  font-weight: bold;
+}
+
+span {
+  text-shadow: 0 0 2px white;
+  z-index: 1;
+}
+
