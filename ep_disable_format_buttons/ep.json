@@ -1,0 +1,10 @@
+{
+  "parts": [
+    {
+      "name": "ep_disable_format_buttons",
+      "client_hooks": {
+        "documentReady": "ep_disable_format_buttons/static/js/disable_format:disableFormat"
+      }
+    }
+  ]
+}
