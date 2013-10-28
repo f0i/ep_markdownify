@@ -1,6 +1,10 @@
 /* Include the Security module, we will use this later to escape a HTML attribute*/
 var Security = require('ep_etherpad-lite/static/js/security.js'); 
 
+/* Time silider detection from md_linkify */
+var timesliderRegexp = new RegExp(/p\/[^\/]*\/timeslider/g);
+var relativeLink = new RegExp(/^[^\/\:][^\:]*$/g);
+
 var imgRegex =     /[!]\[[^\]]*\]\(([^\)\s]+)(\s[^\)]*)?\)/g ;
 var linkRegex = /(^|\ )\[[^\]]*\]\(([^\)\s]+)(\s[^\)]*)?\)/g ;
 var referenceRegex = /(^|\ )\[[^\]]*\]\:\ ([^\ ]*)(\ [\"\'\(][^\"\'\)]+[\"\'\)])?/g ;
@@ -95,6 +99,10 @@ var tags = {
     regex: linkRegex ,
     open: function(string){
       var url = string.replace(linkRegex, "$2").replace(/\ .*$/, '');
+      if(timesliderRegexp.exec(document.location.href) !== null &&
+          relativeLink.exec(url) !== null){
+        url = "../" + url;
+      }
       return '<a href="' + Security.escapeHTMLAttribute(url) + '" >';
     },
     close: function(){ return '</a>'; }
@@ -103,6 +111,10 @@ var tags = {
     regex: referenceRegex,
     open: function(string) {
       var url = string.replace(/^\_*/, '');
+      if(timesliderRegexp.exec(document.location.href) !== null &&
+          relativeLink.exec(url) !== null){
+        url = "../" + url;
+      }
       return '<a href="' + Security.escapeHTMLAttribute(url) + '" >';
     },
     close: function(){ return '</a>'; },
@@ -156,9 +168,7 @@ exports.aceCreateDomLine = function(name, context) {
     }
     if(values[tag]) {
       var modifier = {
-        //TODO: how to include style sheet?:
         extraOpenTags:  (tagData.open ? tagData.open(values[tag]) : ''),
-         // + '<link rel="stylesheet" type="text/css" href="/static/plugins/ep_markdownify/static/css/markdownify.css"/>',
         extraCloseTags: (tagData.close ? tagData.close(values[tag]) : ''),
         cls: cls
       };
