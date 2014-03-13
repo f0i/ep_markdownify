@@ -1,7 +1,7 @@
 {
   "name": "ep_markdownify",
   "description": "Inline markdown formating.  Format headings, show images, highlight lists, tables and more.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "f0i <f0i.etherpad@projects.f0i.de>",
   "contributors": [
   {

@@ -76,13 +76,20 @@ var inlineRegex = function(c) {
   return new RegExp('(^|\\ )('+c+'[^\\ '+c+']((['+c+']*[^'+c+'\\.\\,\\!\\?\\;\\+\\-])*[^\\ '+c+'])?'+c+')', "g");
 };
 
+var headingCount = function(str){
+  var count = str.replace(/^[^#]*/, '').replace(/[^#].*$/, '').length;
+  if(count > 6) return 6;
+  if(count < 1) return 1;
+  return count;
+};
+
 // The core: syntax and tags
 // DON'T forget /g at the end of each regex or it will break etherpad! /* why ??? */
 var tags = {
   mdHeading: {
     regex: /^\ ?\ ?\ ?#+\ *[^\ ].*/g ,
     tag: function(str){
-      return 'h' + str.replace(/^[^#]*/, '').replace(/[^#].*$/, '').length;
+      return 'h' + headingCount(str);
     },
   },
   mdImg: { regex: imgRegex },
@@ -144,8 +151,8 @@ var tags = {
 
 // add extra html-tags and css-classes
 exports.aceCreateDomLine = function(name, context) {
-  var imgSrc = void 0;
-  var mdHeading = void 0;
+  var imgSrc;
+  var mdHeading;
   var cls = context.cls;
   var domline = context.domline;
   var out = [];
