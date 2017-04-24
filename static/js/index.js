@@ -1,5 +1,5 @@
 /* Include the Security module, we will use this later to escape a HTML attribute*/
-var Security = require('ep_etherpad-lite/static/js/security.js'); 
+var Security = require('ep_etherpad-lite/static/js/security'); 
 
 /* Time silider detection from md_linkify */
 var timesliderRegexp = new RegExp(/p\/[^\/]*\/timeslider/g);
